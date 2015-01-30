@@ -17,4 +17,21 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// Semantic-UI
+app.import({
+  development: "bower_components/semantic-ui/dist/semantic.css",
+  production: "bower_components/semantic-ui/dist/semantic.min.css"
+});
+
+app.import({
+  development: "bower_components/semantic-ui/dist/semantic.js",
+  production: "bower_components/semantic-ui/dist/semantic.min.js"
+});
+
+// AWS SDK
+app.import({
+  development: "bower_components/aws-sdk-js/dist/aws-sdk.js",
+  production: "bower_components/aws-sdk-js/dist/aws-sdk.min.js"
+});
+
 module.exports = app.toTree();
