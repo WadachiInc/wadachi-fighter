@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,12 +14,14 @@
 
     {{content-for 'head-footer'}}
   </head>
-  <body>
+  <body class="pushable">
     {{content-for 'body'}}
 
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/wadachi-fighter.js"></script>
 
     {{content-for 'body-footer'}}
+    <div id="fb-root" class="fb_reset">
   </body>
 </html>
