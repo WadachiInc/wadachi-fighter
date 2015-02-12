@@ -1,7 +1,8 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
+var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
 var app = new EmberApp();
 
 // Use `app.import` to add additional libraries to the generated
@@ -28,10 +29,16 @@ app.import({
   production: "bower_components/semantic-ui/dist/semantic.min.js"
 });
 
+var semanticFonts = pickFiles('bower_components/semantic-ui/dist/themes/default/assets/fonts', {
+  srcDir: '/', 
+  files: ['**/*'],
+  destDir: '/assets/themes/default/assets/fonts'
+});
+
 // AWS SDK
 app.import({
   development: "bower_components/aws-sdk-js/dist/aws-sdk.js",
   production: "bower_components/aws-sdk-js/dist/aws-sdk.min.js"
 });
 
-module.exports = app.toTree();
+module.exports = mergeTrees([app.toTree(), semanticFonts]);
