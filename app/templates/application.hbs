@@ -1,15 +1,45 @@
-<div class="ui inverted segment">
-  <label>
+<div class="ui inverted labeled icon left vertical sidebar menu">
+  {{#link-to "news" class="item"}}
+    <i class="feed icon"></i>
+    ニュース
+  {{/link-to}}
+  {{#link-to "help" class="item"}}
+    <i class="help icon"></i>
+    ヘルプ
+  {{/link-to}}
+  {{#link-to "settings" class="item"}}
+    <i class="settings icon"></i>
+    ユーザー設定
+  {{/link-to}}
+  <a class="item">
+    <i class="sign out icon"></i>
+    ログアウト
+  </a>
+  {{#link-to "about" class="item"}}
+    <i class="info icon"></i>
+    <div>わだちファイター</div>
+    <div>について</div>
+  {{/link-to}}
+  <div class="item">
+    <div>&copy; Copyright 2015</div>
+    <div>&nbsp;</div>
+    <div>株式会社わだち</div>
+  </div>
+</div>
+
+<div class="ui inverted fixed top menu">
+  <label class="item" {{action "showSidebar" target="view"}}>
     <i class="content icon"></i>
     わだちファイター
   </label>
 </div>
 
 <div class="pusher content container">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   {{outlet}}
 </div>
 
-<div class="ui labeled inverted three item icon menu">
+<div class="ui labeled inverted fixed bottom three item icon menu">
   {{#link-to "dojo" class="item"}}
     <i class="trophy icon"></i>
     道場

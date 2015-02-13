@@ -6,6 +6,20 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  // サイドバー
+  this.resource("news", function() {
+  });
+
+  this.resource("help", function() {
+  });
+
+  this.resource("settings", function() {
+  });
+
+  this.resource("about", function() {
+  });
+
+  // 親指メニュー
   this.resource("dojo", function() {
   });
 
