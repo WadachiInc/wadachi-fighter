@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'wadachi-fighter',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     contentSecurityPolicyHeader: 'Content-Security-Policy',
     contentSecurityPolicy: {
       'default-src': "'none'",

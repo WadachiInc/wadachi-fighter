@@ -1,16 +1,25 @@
-<div class="ui fixed main menu">
-  <div class="container">
-    <div class="title item">
-      わだちファイター
-    </div>
-    <div class="right item">
-      <a href="http://wdch.jp/" target="_blank">
-        <i class="lab icon"></i>
-        株式会社わだち
-      </a>
-    </div>
-  </div>
+<div class="ui inverted segment">
+  <label>
+    <i class="content icon"></i>
+    わだちファイター
+  </label>
 </div>
+
 <div class="pusher content container">
   {{outlet}}
+</div>
+
+<div class="ui labeled inverted three item icon menu">
+  {{#link-to "dojo" class="item"}}
+    <i class="trophy icon"></i>
+    道場
+  {{/link-to}}
+  {{#link-to "town" class="item"}}
+    <i class="building outline icon"></i>
+    街
+  {{/link-to}}
+  {{#link-to "map" class="item"}}
+    <i class="map icon"></i>
+    冒険
+  {{/link-to}}
 </div>

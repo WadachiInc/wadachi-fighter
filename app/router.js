@@ -6,6 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource("dojo", function() {
+  });
+
+  this.resource("town", function() {
+  });
+
+  this.resource("map", function() {
+  });
 });
 
 export default Router;
