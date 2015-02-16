@@ -2,11 +2,25 @@
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
+.application.top.menu {
+  max-height: 36px;
+  min-height: 36px;
+}
+
 .application .top.menu .item:before {
   background: transparent;
 }
 
+.application.bottom.menu {
+  max-height: 65px;
+  min-height: 65px;
+}
+
 .application .content.container {
   background-color: #eeeeee;
-  padding: 38px 0 67px 0;
+  padding: 36px 0 65px 0;
+}
+
+.application canvas {
+  position: absolute;
 }
