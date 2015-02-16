@@ -41,4 +41,7 @@ app.import({
   production: "bower_components/aws-sdk-js/dist/aws-sdk.min.js"
 });
 
+// BabylonJS
+app.import("bower_components/babylonjs/babylon.1.10.0.js");
+
 module.exports = mergeTrees([app.toTree(), semanticFonts]);
