@@ -42,6 +42,12 @@ app.import({
 });
 
 // BabylonJS
-app.import("bower_components/babylonjs/babylon.1.10.0.js");
+app.import({
+  development: "bower_components/babylonjs/babylon.2.0.debug.js",
+  production: "bower_components/babylonjs/babylon.2.0.js"
+});
+
+app.import("bower_components/babylonjs/cannon.js");
+app.import("bower_components/babylonjs/Oimo.js");
 
 module.exports = mergeTrees([app.toTree(), semanticFonts]);

@@ -15,6 +15,6 @@
     "qunit": "~1.17.1",
     "aws-sdk-js": "2.1.8",
     "semantic-ui": "1.8.1",
-    "babylonjs": "1.10.0"
+    "babylonjs": "378797f650bc8b0052a51d3c2ed5bca86888e953"
   }
 }

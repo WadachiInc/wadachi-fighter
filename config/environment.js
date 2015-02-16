@@ -16,6 +16,12 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     },
     EmberENV: {
+      EXTEND_PROTOTYPES: {
+        Array: false,  // BabylonJSの紛争
+        Function: true,
+        String: true,
+      },
+
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
