@@ -45,6 +45,7 @@ export default CanvasScreenComponent.extend({
     material.diffuseColor = new BABYLON.Color3(0.5, 0, 0.5);
 
     var box = BABYLON.Mesh.CreateBox("mesh", 3, scene);
+    box.rotation = new BABYLON.Vector3.Zero();
     box.showBoundingBox = true;
     box.material = material;
 
@@ -53,6 +54,12 @@ export default CanvasScreenComponent.extend({
 
   // シーンをレンダーする
   renderLoop: function() {
+    var scene = this.get("scene");
+    var mesh = scene.getMeshByName("mesh");
+    var rotation = Math.PI / 100;
+    mesh.rotation.x += rotation;
+    mesh.rotation.y += rotation;
+    mesh.rotation.z += rotation;
     this.get("scene").render();
   },
 
