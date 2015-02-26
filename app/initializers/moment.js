@@ -18,7 +18,7 @@ export function initialize(/* container, application */) {
     isPM : function (input) {
       return input === '午後';
     },
-    meridiem : function (hour, minute, isLower) {
+    meridiem : function (hour/*, minute, isLower*/) {
       if (hour < 12) {
           return '午前';
       } else {

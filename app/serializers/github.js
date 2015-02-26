@@ -19,10 +19,12 @@ export default DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
       delete hash.parents;
 
       if (hash.commit instanceof Object) {
-        hash.commit.id = hash.sha;
-        delete hash.commit.author;
+        hash.commit.id = hash.id;
         delete hash.commit.committer;
         delete hash.commit.tree;
+
+        if (hash.commit.author instanceof Object)
+          hash.commit.author.id = hash.id;
       }
 
       return hash;

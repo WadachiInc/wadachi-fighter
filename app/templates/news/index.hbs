@@ -1,17 +1,21 @@
 <div class="ui feed">
-  {{#each commit in controller}}
+  {{#each}}
     <div class="event">
       <div class="label">
-        <img class="avatar" {{bind-attr src=commit.author.avatarUrl}}>
+        <img class="avatar" {{bind-attr src=author.avatarUrl}}>
       </div>
       <div class="content">
         <div class="summary">
-          <a {{bind-attr href=commit.author.htmlUrl}} target="_blank">
-            {{commit.author.login}}
+          <a {{bind-attr href=author.htmlUrl}} target="_blank">
+            {{author.login}}
           </a>
+          書きました
+          <div class="date">
+            {{ago commit.author.date}}
+          </div>
         </div>
         <div class="extra text">
-          {{commit.commit.message}}
+          {{commit.message}}
         </div>
       </div>
     </div>
