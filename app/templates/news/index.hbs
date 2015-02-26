@@ -1,1 +1,32 @@
-{{outlet}}
+<div class="container">
+  <h2 class="ui top attached header">
+    <i class="feed icon"></i>
+    <div class="content">
+      ニュース
+      <div class="sub header">
+        最近の30日間
+      </div>
+    </div>
+  </h2>
+  <div class="ui attached segment">
+    <div class="ui feed">
+      {{#each commit in controller}}
+        <div class="event">
+          <div class="label">
+            <img class="avatar" {{bind-attr src=commit.author.avatarUrl}}>
+          </div>
+          <div class="content">
+            <div class="summary">
+              <a {{bind-attr href=commit.author.htmlUrl}} target="_blank">
+                {{commit.author.login}}
+              </a>
+            </div>
+            <div class="extra text">
+              {{commit.commit.message}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

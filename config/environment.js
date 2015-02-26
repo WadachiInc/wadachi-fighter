@@ -12,7 +12,7 @@ module.exports = function(environment) {
       'script-src': "'self' connect.facebook.net",
       'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
       'connect-src': "'self' api.github.com",
-      'img-src': "'self'",
+      'img-src': "'self' avatars.githubusercontent.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     },
     EmberENV: {
