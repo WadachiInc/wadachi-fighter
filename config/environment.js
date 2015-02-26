@@ -11,7 +11,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' connect.facebook.net",
       'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
-      'connect-src': "'self'",
+      'connect-src': "'self' api.github.com",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     },
