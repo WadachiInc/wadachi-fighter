@@ -9,13 +9,12 @@
           <a {{bind-attr href=author.htmlUrl}} target="_blank">
             {{author.login}}
           </a>
-          書きました
           <div class="date">
             {{ago commit.author.date}}
           </div>
         </div>
         <div class="extra text">
-          {{commit.message}}
+          {{~commit.message~}}
         </div>
       </div>
     </div>
