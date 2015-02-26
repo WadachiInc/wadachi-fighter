@@ -8,6 +8,6 @@ export default Ember.Route.extend({
   model: function(/*params, transition, queryParams*/) {
     var date = new Date();
     date.setDate(date.getDate() - 30);
-    return this.get("store").find("commit", { since: date });
+    return this.modelFor("news.index") || this.get("store").find("commit", { since: date });
   }
 });
