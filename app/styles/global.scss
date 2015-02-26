@@ -19,23 +19,19 @@
   padding: 36px 0 65px 0;
 }
 
-.page {
-  height: 100%;
-  overflow-y: scroll;
-}
-
-.page > .container {
+.screen > .page {
   background-color: #ffffff;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
+  height: 100%;
   margin: 0em auto;
   padding: 2em 2em 7em;
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 998px) {
-  .page > .container {
+  .screen > .page {
     width: 680px;
     right: 75px;
     margin: 0em auto;
@@ -43,7 +39,12 @@
 }
 
 @media only screen and (min-width: 998px) {
-  .page > .container {
+  .screen > .page {
     right: 110px;
   }
+}
+
+.screen > .page .outlet {
+  height: 100%;
+  overflow-y: auto;
 }
