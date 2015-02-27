@@ -26,6 +26,7 @@
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
   height: 100%;
+  overflow-y: auto;
   margin: 0em auto;
   padding: 2em 2em 7em;
 }
@@ -42,9 +43,4 @@
   .screen > .page {
     right: 110px;
   }
-}
-
-.screen > .page .outlet {
-  height: 100%;
-  overflow-y: auto;
 }
