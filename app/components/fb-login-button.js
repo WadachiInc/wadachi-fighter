@@ -6,26 +6,38 @@ export default Ember.Component.extend({
 
   // ---------------------------------- プロパティ
 
-  canLogout: true,
+  canLogout: "false",
   scope: "public_profile,email",
   size: "xlarge",
-  triggerDidFacebookLogin: null,
+  triggerDidStatusChange: null,
+  triggerLoginAction: null,
+  triggerLogoutAction: null,
 
   // ---------------------------------- メソッド
 
   // イベントを初期化する
   initEvents: function() {
-    this.triggerDidFacebookLogin = Ember.sendEvent.bind(Ember, this.get("controller"), "didFacebookLogin");
+    this.triggerDidStatusChange = Ember.sendEventWithArgumentList.bind(Ember, this, "didStatusChange");
+    this.triggerLoginAction = this.sendAction.bind(this, "login");
+    this.triggerLogoutAction = this.sendAction.bind(this, "logout");
   }.on("init"),
 
   // ボタンを初期化する
   initButton: function() {
-    this.$().on("login", this.triggerDidFacebookLogin);
     window.FB.XFBML.parse(this.$().parent()[0]);
+    window.FB.Event.subscribe("auth.statusChange", this.triggerDidStatusChange);
   }.on("didInsertElement"),
 
   // ボタンを破壊する
   destroyButton: function() {
-    this.$().off("login", this.triggerDidFacebookLogin);
-  }.on("willDestroyElement")
+    window.FB.Event.unsubscribe("auth.statusChange", this.triggerDidStatusChange);
+  }.on("willDestroyElement"),
+
+  // ログインおよびログアウトのアクションをトリガする
+  statusChanged: function(response) {
+    if (response.status === "connected")
+      this.triggerLoginAction(response.authResponse.userID);
+    else
+      this.triggerLogoutAction();
+  }.on("didStatusChange")
 });
