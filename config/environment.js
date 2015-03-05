@@ -13,7 +13,8 @@ module.exports = function(environment) {
       'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
       'connect-src': "'self' api.github.com",
       'img-src': "'self' avatars.githubusercontent.com",
-      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
+      'frame-src': "*.facebook.com"
     },
     EmberENV: {
       EXTEND_PROTOTYPES: {
@@ -29,8 +30,13 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      facebookInit: {
+        appId: "",
+        cookie: false,
+        status: true,
+        xfbml: false,
+        version: "v2.2"
+      }
     }
   };
 
