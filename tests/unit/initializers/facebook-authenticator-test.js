@@ -1,9 +1,9 @@
 import Ember from 'ember';
-import { initialize } from 'wadachi-fighter/initializers/facebook';
+import { initialize } from 'wadachi-fighter/initializers/facebook-authenticator';
 
 var container, application;
 
-module('FacebookInitializer', {
+module('FacebookAuthenticatorInitializer', {
   setup: function() {
     Ember.run(function() {
       application = Ember.Application.create();

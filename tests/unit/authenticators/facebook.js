@@ -3,13 +3,13 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:session', 'SessionController', {
+moduleFor('authenticator:facebook', 'FacebookAuthenticator', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
 
 // Replace this with your real tests.
 test('it exists', function() {
-  var controller = this.subject();
-  ok(controller);
+  var authenticator = this.subject();
+  ok(authenticator);
 });

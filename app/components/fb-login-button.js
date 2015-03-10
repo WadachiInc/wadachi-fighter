@@ -36,8 +36,8 @@ export default Ember.Component.extend({
   // ログインおよびログアウトのアクションをトリガする
   statusChanged: function(response) {
     if (response.status === "connected")
-      this.triggerLoginAction(response.authResponse.userID);
+      this.triggerLoginAction(response);
     else
-      this.triggerLogoutAction();
+      this.triggerLogoutAction(response);
   }.on("didStatusChange")
 });
