@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import sendEvent from '../utils/send-event';
 
 export default Ember.Component.extend({
   tagName: "fb:login-button",
@@ -17,7 +18,7 @@ export default Ember.Component.extend({
 
   // イベントを初期化する
   initEvents: function() {
-    this.triggerDidStatusChange = Ember.sendEventWithArgumentList.bind(Ember, this, "didStatusChange");
+    this.triggerDidStatusChange = sendEvent.bind(Ember, this, "didStatusChange");
     this.triggerLoginAction = this.sendAction.bind(this, "login");
     this.triggerLogoutAction = this.sendAction.bind(this, "logout");
   }.on("init"),
