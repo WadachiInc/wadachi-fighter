@@ -1,0 +1,30 @@
+<h2 class="ui header">
+  <i class="settings icon"></i>
+  <div class="content">
+    ユーザー設定
+    <div class="sub header">
+      デバイスごとに
+    </div>
+  </div>
+</h2>
+<div class="ui divider"></div>
+
+<div class="ui top attached segment">
+  <div class="ui top attached label">
+    アカウント
+  </div>
+</div>
+<div class="ui attached segment">
+  <div class="ui two column middle aligned relaxed fitted stackable grid">
+    {{#unless session.isAuthenticated}}
+      <div class="center aligned column">
+        {{fb-login-button}}
+      </div>
+      <div class="ui vertical divider">
+        や
+      </div>
+      <div class="center aligned column">
+      </div>
+    {{/unless}}
+  </div>
+</div>
