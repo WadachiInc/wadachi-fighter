@@ -1,9 +1,10 @@
-import computed from 'wadachi-fighter/utils/computed';
+import computed from '../../../utils/computed';
+import { module, test } from 'qunit';
 
 module('computed');
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   var result = computed();
-  ok(result);
+  assert.ok(result);
 });

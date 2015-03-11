@@ -1,10 +1,11 @@
 import Ember from 'ember';
-import { initialize } from 'wadachi-fighter/initializers/facebook-authenticator';
+import { initialize } from '../../../initializers/facebook-authenticator';
+import { module, test } from 'qunit';
 
 var container, application;
 
 module('FacebookAuthenticatorInitializer', {
-  setup: function() {
+  beforeEach: function() {
     Ember.run(function() {
       application = Ember.Application.create();
       container = application.__container__;
@@ -14,10 +15,9 @@ module('FacebookAuthenticatorInitializer', {
 });
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   initialize(container, application);
 
   // you would normally confirm the results of the initializer here
-  ok(true);
+  assert.ok(true);
 });
-

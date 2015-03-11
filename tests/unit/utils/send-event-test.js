@@ -1,9 +1,10 @@
-import sendEvent from 'wadachi-fighter/utils/send-event';
+import sendEvent from '../../../utils/send-event';
+import { module, test } from 'qunit';
 
 module('sendEvent');
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   var result = sendEvent();
-  ok(result);
+  assert.ok(result);
 });

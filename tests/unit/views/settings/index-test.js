@@ -3,10 +3,10 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:settings/index', 'SettingsIndexView');
+moduleFor('view:settings/index');
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var view = this.subject();
-  ok(view);
+  assert.ok(view);
 });
