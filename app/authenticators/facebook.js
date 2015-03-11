@@ -28,7 +28,12 @@ export default Base.extend({
   // Ember.RSVP.Promiseを返す
   invalidate: function(/*data*/) {
     return new Ember.RSVP.Promise(function(resolve) {
-      window.FB.logout(function(response) { resolve(response); });
+      window.FB.getLoginStatus(function(response) {
+        if (response && response.status === "connected")
+          window.FB.logout(function(response) { resolve(response); });
+        else
+          resolve(response);
+      });
     }, "Authenticator: 'facebook': Invalidate session");
   },
 
