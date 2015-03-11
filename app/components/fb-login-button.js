@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Computed from '../utils/computed';
 import FacebookEventsMixin from '../mixins/facebook-events';
 
 export default Ember.Component.extend(FacebookEventsMixin, {
@@ -10,16 +11,10 @@ export default Ember.Component.extend(FacebookEventsMixin, {
   canLogout: "false",
   scope: "public_profile,email",
   size: "xlarge",
-  triggerLoginAction: null,
-  triggerLogoutAction: null,
+  triggerLoginAction: Computed.actionTrigger("login"),
+  triggerLogoutAction: Computed.actionTrigger("logout"),
 
   // ---------------------------------- メソッド
-
-  // トリガーを初期化する
-  initTriggers: function() {
-    this.set("triggerLoginAction", this.sendAction.bind(this, "login"));
-    this.set("triggerLogoutAction", this.sendAction.bind(this, "logout"));
-  }.on("init"),
 
   // ボタンを初期化する
   initButton: function() {
