@@ -9,22 +9,22 @@
 </h2>
 <div class="ui divider"></div>
 <div class="ui feed">
-  {{#each}}
+  {{#each commit in model}}
     <div class="event">
       <div class="label">
-        <img class="avatar" {{bind-attr src=author.avatarUrl}}>
+        <img class="avatar" {{bind-attr src=commit.author.avatarUrl}}>
       </div>
       <div class="content">
         <div class="summary">
-          <a {{bind-attr href=author.htmlUrl}} target="_blank">
-            {{author.login}}
+          <a {{bind-attr href=commit.author.htmlUrl}} target="_blank">
+            {{commit.author.login}}
           </a>
           <div class="date">
-            {{ago commit.author.date}}
+            {{ago commit.commit.author.date}}
           </div>
         </div>
         <div class="extra text">
-          {{~commit.message~}}
+          {{~commit.commit.message~}}
         </div>
       </div>
     </div>
