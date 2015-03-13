@@ -1,25 +1,10 @@
 import Ember from 'ember';
+import ResizeEventsMixin from '../mixins/resize-events';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ResizeEventsMixin, {
   tagName: "canvas",
 
   // ---------------------------------- メソッド
-
-  // イベントを初期化する
-  initEvents: function() {
-    this.triggerDidWindowResize = Ember.sendEvent.bind(Ember, this, "didWindowResize");
-  }.on("init"),
-
-  // キャンバスを初期化する
-  initCanvas: function() {
-    Ember.$(window).resize(this.triggerDidWindowResize);
-    this.resizeCanvas();
-  }.on("didInsertElement"),
-
-  // キャンバスを破壊する
-  destroyCanvas: function() {
-    Ember.$(window).off("resize", this.triggerDidWindowResize);
-  }.on("willDestroyElement"),
 
   // ウィンドウのサイズが変更されたときにキャンバスのサイズを変更する
   resizeCanvas: function() {

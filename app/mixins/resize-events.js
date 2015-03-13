@@ -5,19 +5,25 @@ export default Ember.Mixin.create({
 
   // ---------------------------------- プロパティ
 
-  triggerDidFacebookStatusChange: Computed.eventTrigger("didFacebookStatusChange"),
+  triggerDidWindowResize: Computed.eventTrigger("didWindowResize"),
 
   // ---------------------------------- メソッド
 
   // イベントを初期化する
   init: function() {
     this._super.apply(this, arguments);
-    window.FB.Event.subscribe("auth.statusChange", this.get("triggerDidFacebookStatusChange"));
+    Ember.$(window).resize(this.get("triggerDidWindowResize"));
   },
 
   // イベントを破壊する
   willDestroy: function() {
-    window.FB.Event.unsubscribe("auth.statusChange", this.get("triggerDidFacebookStatusChange"));
+    Ember.$(window).off("resize", this.get("triggerDidWindowResize"));
     this._super.apply(this, arguments);
   },
+
+  // 要素が挿入されたときにサイズ変更イベントをトリガする
+  didInsertElement: function() {
+    this._super.apply(this, arguments);
+    this.get("triggerDidWindowResize")();
+  }
 });

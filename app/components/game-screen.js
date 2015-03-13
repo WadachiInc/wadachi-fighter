@@ -1,4 +1,6 @@
+import Ember from 'ember';
 import CanvasScreenComponent from './canvas-screen';
+import Computed from '../utils/computed';
 
 var BABYLON = window.BABYLON;
 
@@ -9,19 +11,16 @@ export default CanvasScreenComponent.extend({
   engine: null,
   scene: null,
 
-  // ---------------------------------- メソッド
+  triggerRender: Computed.eventTrigger("render"),
 
-  // バインディングを初期化する
-  initBindings: function() {
-    this.renderLoop = this.renderLoop.bind(this);
-  }.on("init"),
+  // ---------------------------------- メソッド
 
   // ゲームエンジンを初期化する
   initEngine: function() {
     var engine = new BABYLON.Engine(this.get("element"), true);
     this.set("engine", engine);
     this.createScene();
-    engine.runRenderLoop(this.renderLoop);
+    engine.runRenderLoop(this.get("triggerRender"));
   }.on("didInsertElement"),
 
   // ゲームエンジンを破壊する
@@ -61,10 +60,10 @@ export default CanvasScreenComponent.extend({
     mesh.rotation.y += rotation;
     mesh.rotation.z += rotation;
     this.get("scene").render();
-  },
+  }.on("render"),
 
   // ゲーム画面のサイズを変更する
   resizeEngine: function() {
-    this.get("engine").resize();
+    Ember.run.once(this.get("engine"), "resize");
   }.on("didWindowResize")
 });
