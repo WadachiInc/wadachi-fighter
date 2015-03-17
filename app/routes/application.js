@@ -3,6 +3,15 @@ import FacebookEventsMixin from '../mixins/facebook-events';
 
 export default Ember.Route.extend(FacebookEventsMixin, {
 
+  // ---------------------------------- アクション
+
+  actions: {
+    // ログアウトする
+    logout: function() {
+      this.get("session").invalidate();
+    }
+  },
+
   // ---------------------------------- メソッド
 
   // ログインおよびログアウトのアクションをトリガする
