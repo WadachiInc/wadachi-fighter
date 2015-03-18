@@ -12,9 +12,9 @@ module.exports = function(environment) {
       'script-src': "'self' www.google-analytics.com apis.google.com connect.facebook.net",
       'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
       'connect-src': "'self' api.github.com",
-      'img-src': "'self' www.google-analytics.com avatars.githubusercontent.com",
+      'img-src': "'self' www.google-analytics.com apis.google.com avatars.githubusercontent.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'frame-src': "accounts.google.com *.facebook.com"
+      'frame-src': "*.google.com *.facebook.com"
     },
     EmberENV: {
       EXTEND_PROTOTYPES: {
@@ -40,6 +40,13 @@ module.exports = function(environment) {
 
       googleAnalytics: {
         account: ""
+      },
+
+      googlePlusSignin: {
+        clientid: "",
+        cookiepolicy: "single_host_origin",
+        height: "tall",
+        width: "wide"
       }
     }
   };
