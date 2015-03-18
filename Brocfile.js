@@ -53,4 +53,19 @@ app.import({
 app.import("bower_components/babylonjs/cannon.js");
 app.import("bower_components/babylonjs/Oimo.js");
 
+// Noty
+app.import({
+  development: "bower_components/noty/js/noty/packaged/jquery.noty.packaged.js",
+  production: "bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"
+});
+
+app.import("vendor/noty-settings.js");
+
+// Animate.css
+app.import({
+  development: "bower_components/animate.css/animate.css",
+  production: "bower_components/animate.css/animate.min.css"
+});
+
+// Merge trees and export
 module.exports = mergeTrees([app.toTree(), semanticFonts]);
