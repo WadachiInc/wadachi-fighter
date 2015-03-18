@@ -67,5 +67,8 @@ app.import({
   production: "bower_components/animate.css/animate.min.css"
 });
 
+// Moment
+app.import("vendor/moment-settings.js");
+
 // Merge trees and export
 module.exports = mergeTrees([app.toTree(), semanticFonts]);
