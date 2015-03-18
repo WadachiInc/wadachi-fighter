@@ -3,7 +3,14 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var mergeTrees = require('broccoli-merge-trees');
 var pickFiles = require('broccoli-static-compiler');
-var app = new EmberApp();
+
+var app = new EmberApp({
+  fingerprint: {
+    exclude: [
+      "gp-productlogo-120.png"  // google+ 認証画面のロゴ
+    ]
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
