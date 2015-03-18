@@ -9,12 +9,12 @@ module.exports = function(environment) {
     contentSecurityPolicyHeader: 'Content-Security-Policy',
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' www.google-analytics.com connect.facebook.net",
+      'script-src': "'self' www.google-analytics.com apis.google.com connect.facebook.net",
       'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
       'connect-src': "'self' api.github.com",
       'img-src': "'self' www.google-analytics.com avatars.githubusercontent.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'frame-src': "*.facebook.com"
+      'frame-src': "accounts.google.com *.facebook.com"
     },
     EmberENV: {
       EXTEND_PROTOTYPES: {
