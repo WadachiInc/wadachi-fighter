@@ -45,6 +45,7 @@ module.exports = function(environment) {
       googlePlusSignin: {
         clientid: "",
         cookiepolicy: "single_host_origin",
+        scope: "profile",
         height: "tall",
         width: "wide"
       }
