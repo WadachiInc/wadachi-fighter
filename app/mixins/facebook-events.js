@@ -19,5 +19,5 @@ export default Ember.Mixin.create({
   willDestroy: function() {
     window.FB.Event.unsubscribe("auth.statusChange", this.get("triggerDidFacebookStatusChange"));
     this._super.apply(this, arguments);
-  },
+  }
 });
