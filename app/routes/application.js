@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import FacebookEventsMixin from '../mixins/facebook-events';
+import GooglePlusEventsMixin from '../mixins/google-plus-events';
 import ToastNotyMixin from '../mixins/toast-noty';
 
-export default Ember.Route.extend(FacebookEventsMixin, ToastNotyMixin, {
+export default Ember.Route.extend(FacebookEventsMixin, GooglePlusEventsMixin, ToastNotyMixin, {
 
   // ---------------------------------- アクション
 
@@ -22,6 +23,14 @@ export default Ember.Route.extend(FacebookEventsMixin, ToastNotyMixin, {
     else
       this.get("session").invalidate();
   }.on("didFacebookStatusChange"),
+
+  // ログインおよびログアウトのアクションをトリガする
+  didGooglePlusStatusChange: function(e, response) {
+    if (response.status.signed_in)
+      this.get("session").authenticate("authenticator:google-plus", response);
+    else
+      this.get("session").invalidate();
+  }.on("didGooglePlusStatusChange"),
 
   // 認証ステータスが変更されたときにメッセージを表示する
   isAuthenticatedChanged: function() {
