@@ -8,5 +8,6 @@ export function initialize(container /*, application */) {
 
 export default {
   name: 'facebook-authenticator',
+  before: 'simple-auth',
   initialize: initialize
 };

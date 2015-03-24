@@ -6,5 +6,6 @@ export function initialize(container /*, application */) {
 
 export default {
   name: 'google-plus-authenticator',
+  before: 'simple-auth',
   initialize: initialize
 };
