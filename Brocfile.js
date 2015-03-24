@@ -78,7 +78,7 @@ app.import({
 app.import("vendor/moment-settings.js");
 
 // Google+
-app.import("vendor/googleplus-settings.js");
+app.import("vendor/google-plus-settings.js");
 
 // Merge trees and export
 module.exports = mergeTrees([app.toTree(), semanticFonts]);
