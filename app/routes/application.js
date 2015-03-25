@@ -12,6 +12,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, FacebookEventsMixin, Go
     // ログアウトする
     logout: function() {
       this.get("session").invalidate();
+    },
+
+    // 認証が失敗したときにアクションがトリガされる
+    sessionAuthenticationFailed: function() {
+      this.toast("ログインが失敗しました");
     }
   },
 
