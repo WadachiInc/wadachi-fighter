@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 import FacebookEventsMixin from '../mixins/facebook-events';
 import GooglePlusEventsMixin from '../mixins/google-plus-events';
 import ToastNotyMixin from '../mixins/toast-noty';
 
-export default Ember.Route.extend(FacebookEventsMixin, GooglePlusEventsMixin, ToastNotyMixin, {
+export default Ember.Route.extend(ApplicationRouteMixin, FacebookEventsMixin, GooglePlusEventsMixin, ToastNotyMixin, {
 
   // ---------------------------------- アクション
 
