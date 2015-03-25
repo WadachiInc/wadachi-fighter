@@ -39,5 +39,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, FacebookEventsMixin, Go
       this.toast("ログインされました");
     else
       this.toast("ログアウトされました");
-  }.observes("session.isAuthenticated")
+  }.observes("session.isAuthenticated"),
+
+  // 帰国プレイヤーを歓迎メッセージを表示する
+  showWelcomeMessage: function() {
+    if (this.get("session.isAuthenticated"))
+      this.toast("お帰り");
+  }.on("init")
 });
