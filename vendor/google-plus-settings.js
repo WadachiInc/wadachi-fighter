@@ -4,6 +4,15 @@ window.___gcfg = {
   parsetags: "explicit"
 };
 
+Object.defineProperty(window, "googlePlusOnLoad", {
+  value: (function(e, $) {
+    return function() {
+      window.googlePlusOnLoad.loaded = true;
+      $(e).trigger("google-plus-onload", arguments);
+    }
+  })(window.document, jQuery)
+});
+
 // サイン　ステータス　イベントの宣言
 window.jQuery("head").append('<meta name="google-signin-callback" content="googleSigninCallback">');
 
