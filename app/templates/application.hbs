@@ -11,10 +11,12 @@
     <i class="settings icon"></i>
     ユーザー設定
   {{/link-to}}
-  <a class="item" {{action "logout"}}>
-    <i class="sign out icon"></i>
-    ログアウト
-  </a>
+  {{#if session.isAuthenticated}}
+    <a class="item" {{action "invalidateSession"}}>
+      <i class="sign out icon"></i>
+      ログアウト
+    </a>
+  {{/if}}
   {{#link-to "about" class="item"}}
     <i class="info icon"></i>
     <div>わだちファイター</div>

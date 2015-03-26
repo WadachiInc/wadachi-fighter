@@ -9,14 +9,22 @@ export default Ember.Route.extend(ApplicationRouteMixin, FacebookEventsMixin, Go
   // ---------------------------------- アクション
 
   actions: {
-    // ログアウトする
-    logout: function() {
-      this.get("session").invalidate();
+    // ログインされたときにメッセージを表示する
+    sessionAuthenticationSucceeded: function() {
+      this.toast("ログインされました");
+      // this._super を呼び出さず
     },
 
     // 認証が失敗したときにアクションがトリガされる
     sessionAuthenticationFailed: function() {
       this.toast("ログインが失敗しました");
+      // this._super を呼び出さず
+    },
+
+    // ログアウトされたときにメッセージを表示する
+    sessionInvalidationSucceeded: function() {
+      this.toast("ログアウトされました");
+      // this._super を呼び出さず
     }
   },
 
@@ -37,14 +45,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, FacebookEventsMixin, Go
     else
       this.get("session").invalidate();
   }.on("didGooglePlusStatusChange"),
-
-  // 認証ステータスが変更されたときにメッセージを表示する
-  isAuthenticatedChanged: function() {
-    if (this.get("session.isAuthenticated"))
-      this.toast("ログインされました");
-    else
-      this.toast("ログアウトされました");
-  }.observes("session.isAuthenticated"),
 
   // 帰国プレイヤーを歓迎メッセージを表示する
   showWelcomeMessage: function() {
