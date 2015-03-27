@@ -53,11 +53,9 @@ export default Base.extend({
   // 認証されたセッションを復元する
   // Ember.RSVP.Promiseを返す
   restore: function(data) {
-    return new Ember.RSVP.Promise(function(resolve, reject) {
-      this.waitLoad()
-        .then(this.checkSessionState.bind(this, data.session_state))
-        .then(resolve.bind(window, data), reject);
-    }.bind(this), "Authenticator: 'google-plus': Restore session");
+    return this.waitLoad()
+      .then(this.checkSessionState.bind(this, data.session_state), null, "Check session state")
+      .then(Ember.K.bind(data), null, "Restore session");
   },
 
   // Google+ APIがロードするを待つ
