@@ -6,16 +6,6 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
-    contentSecurityPolicyHeader: 'Content-Security-Policy',
-    contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com connect.facebook.net apis.google.com",
-      'font-src': "'self' fonts.gstatic.com data: connect.facebook.net",
-      'connect-src': "'self' api.github.com",
-      'img-src': "'self' www.google-analytics.com apis.google.com csi.gstatic.com avatars.githubusercontent.com",
-      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'frame-src': "*.facebook.com *.google.com"
-    },
     EmberENV: {
       EXTEND_PROTOTYPES: {
         Array: false,  // BabylonJS‚Ì•´‘ˆ
@@ -58,7 +48,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['script-src'] += ' localhost:35729 ';
   }
 
   if (environment === 'test') {
