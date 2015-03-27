@@ -10,6 +10,14 @@ export default Base.extend({
   // Ember.RSVP.Promiseを返す
   authenticate: function(data) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
+      if ("g-oauth-window" in data)
+        window.Object.defineProperty(data, "g-oauth-window", {
+          configurable: true,
+          enumerable: false,  // cross-origin frameからディープ·コピーはだめだ！
+          value: data["g-oauth-window"],
+          writable: true
+        });
+
       if (!Ember.isNone(window.gapi.auth.getToken()))
         resolve(data);
       else
